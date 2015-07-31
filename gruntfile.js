@@ -305,7 +305,11 @@ module.exports = function(grunt) {
         },
         ts: {
             build: {
-                src: localCfg.typeScriptSrc,
+                src: localCfg.typeScriptSrc.concat([
+                    '!./**/*ios.ts',
+                    '!./**/*ios.d.ts',
+                    '!./ios.d.ts',
+                ]),
                 outDir: localCfg.outModulesDir,
                 options: {
                     fast: 'never',
